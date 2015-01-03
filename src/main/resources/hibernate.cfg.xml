@@ -1,0 +1,30 @@
+<hibernate-configuration>
+  <session-factory>
+     
+    <!-- cau hinh database -->
+   <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+   <property name="connection.url">jdbc:mysql://localhost:3306/iWe</property>
+   <property name="connection.username">root</property>
+   <property name="connection.password">123456</property>
+       
+    <!-- cau hinh connection pool -->
+    <property name="connection.pool_size">1</property>
+       
+    <!-- sql dialect --> 
+    <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+       
+    <!-- cho phep hibernate tu dong quan ly noi dung session -->
+    <property name="current_session_context_class">thread</property>
+       
+    <!-- disable cache mức 2 -->
+    <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+       
+    <!-- in ra cac cau lenh sql duoc thuc thi o output -->
+    <property name="show_sql">false</property>
+    <property name="hbm2ddl.auto">validate</property>
+       
+    <!--  mapping table thanh class  -->
+    <mapping resource="vn/ds/hibernate/Product.hbm.xml">
+       
+  </mapping></session-factory>
+</hibernate-configuration>
