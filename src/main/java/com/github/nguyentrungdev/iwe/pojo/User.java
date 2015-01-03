@@ -2,23 +2,31 @@ package com.github.nguyentrungdev.iwe.pojo;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Type;
 @Entity
 @Table
 public class User {
+	@Id
+	@GeneratedValue
 	private Long id;
 	private String userName;
 	private String passWord;
 	private String firstName;
 	private String lastName;
-	private String birthDate;
+	private Date birthDate;
 	private String phoneNumber;
 	private String email;
 	private String address;
-	private short isActive;
-	private Date createdDate;
-	private Date modifiedDate;
+	@Column(columnDefinition = "BIT", length = 1)
+	private Boolean isActive;
+	private Date registrationDate;
+	private Date lastLogin;
 	
 	public Long getId() {
 		return id;
@@ -50,10 +58,10 @@ public class User {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public String getBirthDate() {
+	public Date getBirthDate() {
 		return birthDate;
 	}
-	public void setBirthDate(String birthDate) {
+	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
 	public String getPhoneNumber() {
@@ -74,22 +82,23 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public short getIsActive() {
+	public Boolean getIsActive() {
 		return isActive;
 	}
-	public void setIsActive(short isActive) {
+	public void setIsActive(Boolean isActive) {
 		this.isActive = isActive;
 	}
-	public Date getCreatedDate() {
-		return createdDate;
+	public Date getLastLogin() {
+		return lastLogin;
 	}
-	public void setCreatedDate(Date createdDate) {
-		this.createdDate = createdDate;
+	public void setLastLogin(Date lastLogin) {
+		this.lastLogin = lastLogin;
 	}
-	public Date getModifiedDate() {
-		return modifiedDate;
+	public Date getRegistrationDate() {
+		return registrationDate;
 	}
-	public void setModifiedDate(Date modifiedDate) {
-		this.modifiedDate = modifiedDate;
+	public void setRegistrationDate(Date registrationDate) {
+		this.registrationDate = registrationDate;
 	}
+	
 }

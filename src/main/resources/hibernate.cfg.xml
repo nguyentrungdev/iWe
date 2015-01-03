@@ -1,30 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-  <session-factory>
-     
-    <!-- cau hinh database -->
-   <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-   <property name="connection.url">jdbc:mysql://localhost:3306/iWe</property>
-   <property name="connection.username">root</property>
-   <property name="connection.password">123456</property>
-       
-    <!-- cau hinh connection pool -->
-    <property name="connection.pool_size">1</property>
-       
-    <!-- sql dialect --> 
+ <session-factory>
+  
+    <property name="connection.url">jdbc:mysql://localhost:3306/iWe</property>
+    <property name="connection.username">root</property>
+    <property name="connection.password">123456</property>
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
-       
-    <!-- cho phep hibernate tu dong quan ly noi dung session -->
-    <property name="current_session_context_class">thread</property>
-       
-    <!-- disable cache mức 2 -->
-    <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
-       
-    <!-- in ra cac cau lenh sql duoc thuc thi o output -->
-    <property name="show_sql">false</property>
+  
+    <property name="show_sql">true</property>
+  
+    <property name="format_sql">true</property>
     <property name="hbm2ddl.auto">validate</property>
-       
-    <!--  mapping table thanh class  -->
-    <mapping resource="vn/ds/hibernate/Product.hbm.xml">
-       
-  </mapping></session-factory>
+  
+    <!-- JDBC connection pool (use the built-in) -->
+    <property name="connection.pool_size">1</property>
+    <property name="current_session_context_class">thread</property>
+ 
+     <mapping class="com.github.nguyentrungdev.iwe.pojo.User" />
+ 
+ <!-- <mapping resource="com/mkyong/user/DBUser.hbm.xml"></mapping> -->
+</session-factory>
 </hibernate-configuration>
