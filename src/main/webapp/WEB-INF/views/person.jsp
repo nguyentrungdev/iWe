@@ -21,7 +21,7 @@
 
 <form:form action="${addAction}" commandName="person">
 <table>
-	<c:if test="${!empty person.name}">
+	<c:if test="${!empty person.firstName}">
 	<tr>
 		<td>
 			<form:label path="id">
@@ -36,31 +36,31 @@
 	</c:if>
 	<tr>
 		<td>
-			<form:label path="name">
+			<form:label path="firstName">
 				<spring:message text="Name"/>
 			</form:label>
 		</td>
 		<td>
-			<form:input path="name" />
+			<form:input path="firstName" />
 		</td> 
 	</tr>
 	<tr>
 		<td>
-			<form:label path="country">
+			<form:label path="lastName">
 				<spring:message text="Country"/>
 			</form:label>
 		</td>
 		<td>
-			<form:input path="country" />
+			<form:input path="lastName" />
 		</td>
 	</tr>
 	<tr>
 		<td colspan="2">
-			<c:if test="${!empty person.name}">
+			<c:if test="${!empty person.firstName}">
 				<input type="submit"
 					value="<spring:message text="Edit Person"/>" />
 			</c:if>
-			<c:if test="${empty person.name}">
+			<c:if test="${empty person.firstName}">
 				<input type="submit"
 					value="<spring:message text="Add Person"/>" />
 			</c:if>
@@ -82,8 +82,8 @@
 	<c:forEach items="${listPersons}" var="person">
 		<tr>
 			<td>${person.id}</td>
-			<td>${person.name}</td>
-			<td>${person.country}</td>
+			<td>${person.firstName}</td>
+			<td>${person.lastName}</td>
 			<td><a href="<c:url value='/edit/${person.id}' />" >Edit</a></td>
 			<td><a href="<c:url value='/remove/${person.id}' />" >Delete</a></td>
 		</tr>

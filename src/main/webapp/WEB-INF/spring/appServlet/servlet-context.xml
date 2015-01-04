@@ -25,11 +25,9 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 
-	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-		destroy-method="close">
+	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<beans:property name="url"
-			value="jdbc:mysql://localhost:3306/iWe" />
+		<beans:property name="url" value="jdbc:mysql://localhost:3306/iWe" />
 		<beans:property name="username" value="root" />
 		<beans:property name="password" value="123456" />
 	</beans:bean>
@@ -40,7 +38,7 @@
 		<beans:property name="dataSource" ref="dataSource" />
 		<beans:property name="annotatedClasses">
 			<beans:list>
-				<beans:value>com.github.nguyentrungdev.iwe.model.Person</beans:value>
+				<beans:value>com.github.nguyentrungdev.iwe.pojo.Person</beans:value>
 			</beans:list>
 		</beans:property>
 		<beans:property name="hibernateProperties">
@@ -52,10 +50,10 @@
 		</beans:property>
 	</beans:bean>
 	
-	<beans:bean id="personDAO" class="com.github.nguyentrungdev.dao.PersonDAOImpl">
+	<beans:bean id="personDAO" class="com.github.nguyentrungdev.iwe.dao.PersonDAOImpl">
 		<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
 	</beans:bean>
-	<beans:bean id="personService" class="ccom.github.nguyentrungdev.service.PersonServiceImpl">
+	<beans:bean id="personService" class="com.github.nguyentrungdev.iwe.service.PersonServiceImpl">
 		<beans:property name="personDAO" ref="personDAO"></beans:property>
 	</beans:bean>
 	<context:component-scan base-package="com.github.nguyentrungdev.iwe.controller" />

@@ -14,7 +14,7 @@ public class PersonServiceImpl implements PersonService {
 	
 	private PersonDAO personDAO;
 	
-	public void setPersonDao(PersonDAO personDAO) {
+	public void setPersonDAO(PersonDAO personDAO) {
 		this.personDAO = personDAO;
 	}
 	
@@ -23,7 +23,6 @@ public class PersonServiceImpl implements PersonService {
 	public void addPerson(Person person) {
 		this.personDAO.addPerson(person);
 	}
-	
 	@Override
 	@Transactional
 	public void updatePerson(Person p) {
