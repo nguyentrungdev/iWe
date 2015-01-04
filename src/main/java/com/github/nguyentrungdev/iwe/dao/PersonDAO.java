@@ -4,7 +4,8 @@ import java.util.List;
 
 import com.github.nguyentrungdev.iwe.pojo.Person;
 
-public interface PersonDao {
+public interface PersonDAO {
+
 	public void addPerson(Person person);
 
 	void updatePerson(Person p);
@@ -14,5 +15,5 @@ public interface PersonDao {
 	Person getPersonById(long id);
 
 	void removePerson(long id);
-
 }
+

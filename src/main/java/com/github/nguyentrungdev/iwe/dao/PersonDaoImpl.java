@@ -11,8 +11,8 @@ import org.springframework.stereotype.Repository;
 import com.github.nguyentrungdev.iwe.pojo.Person;
 
 @Repository
-public class PersonDaoImpl implements PersonDao{
-	private static final Logger logger = LoggerFactory.getLogger(PersonDaoImpl.class);
+public class PersonDAOImpl implements PersonDAO{
+	private static final Logger logger = LoggerFactory.getLogger(PersonDAOImpl.class);
 	private SessionFactory sessionFactory;
 	
 	public void setSessionFactory(SessionFactory sf){

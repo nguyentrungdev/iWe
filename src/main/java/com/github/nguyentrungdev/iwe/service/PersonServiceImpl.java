@@ -6,15 +6,15 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.github.nguyentrungdev.iwe.dao.PersonDao;
+import com.github.nguyentrungdev.iwe.dao.PersonDAO;
 import com.github.nguyentrungdev.iwe.pojo.Person;
 
 @Service
 public class PersonServiceImpl implements PersonService {
 	
-	private PersonDao personDAO;
+	private PersonDAO personDAO;
 	
-	public void setPersonDao(PersonDao personDAO) {
+	public void setPersonDao(PersonDAO personDAO) {
 		this.personDAO = personDAO;
 	}
 	
