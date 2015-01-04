@@ -1,7 +1,8 @@
 package com.github.nguyentrungdev.iwe.controller;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,14 +16,14 @@ import com.github.nguyentrungdev.iwe.service.PersonService;
 
 @Controller
 public class PersonController {
-	
+	@Autowired
 	private PersonService personService;
 	
-	@Autowired(required=true)
+	/*@Autowired(required=true)
 	@Qualifier(value="personService")
 	public void setPersonService(PersonService ps){
 		this.personService = ps;
-	}
+	}*/
 	
 	@RequestMapping(value = "/persons", method = RequestMethod.GET)
 	public String listPersons(Model model) {
@@ -34,9 +35,14 @@ public class PersonController {
 	//For add and update person both
 	@RequestMapping(value= "/person/add", method = RequestMethod.POST)
 	public String addPerson(@ModelAttribute("person") Person p){
-		
-		if(p.getId() == 0){
+		System.out.println(0);
+		if(p.getId() == null){
 			//new person, add it
+			System.out.println(1);
+			p.setIsActive(true);
+			p.setUserName("test");
+			p.setPassWord("test");
+			p.setRegistrationDate(new Date());
 			this.personService.addPerson(p);
 		}else{
 			//existing person, call update

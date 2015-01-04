@@ -21,7 +21,7 @@ public class Person {
 	private String email;
 	private String address;
 	@Column(columnDefinition = "BIT", length = 1)
-	private Boolean isActive;
+	private Boolean isActive = true;
 	private Date registrationDate;
 	private Date lastLogin;
 	
