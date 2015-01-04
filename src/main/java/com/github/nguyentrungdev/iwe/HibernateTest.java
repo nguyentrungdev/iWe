@@ -7,7 +7,7 @@ import javax.persistence.EntityManagerFactory;
 
 import org.hibernate.Session;
 
-import com.github.nguyentrungdev.iwe.pojo.User;
+import com.github.nguyentrungdev.iwe.pojo.Person;
 import com.github.nguyentrungdev.iwe.pojo.WallPost;
 import com.github.nguyentrungdev.iwe.pojo.WallPost_Like;
 import com.github.nguyentrungdev.iwe.util.HibernateUtil;
@@ -18,24 +18,24 @@ public class HibernateTest {
 		session.beginTransaction();
 		//EntityManagerFactory emf = HibernateUtil.getEntityMangerFactory();
 		//EntityManager em = emf.createEntityManager();
-		//User userT = em.find(User.class, "3");
+		//Person userT = em.find(Person.class, "3");
 		//System.out.println(userT.getFirstName());
-		User user = new User();
-		user.setFirstName("Trung");
-		user.setUserName("trung");
-		user.setPassWord("123456");
-		user.setIsActive(true);
-		session.save(user);
-		System.out.println(user.getId());
+		Person person = new Person();
+		person.setFirstName("Trung");
+		person.setUserName("trung");
+		person.setPassWord("123456");
+		person.setIsActive(true);
+		session.save(person);
+		System.out.println(person.getId());
 		WallPost post = new WallPost();
 		post.setContent("TrungTest");
 		post.setIsActive(true);
 		post.setCreatedDate(new Date());
-		post.setUser_Id(user.getId());
+		post.setUser_Id(person.getId());
 		
 		session.save(post);
 		WallPost_Like like = new WallPost_Like();
-		like.setUser_Id(user.getId());
+		like.setUser_Id(person.getId());
 		like.setWallPost_Id(post.getId());
 		session.save(like);
 		session.getTransaction().commit();

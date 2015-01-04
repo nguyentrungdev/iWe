@@ -13,7 +13,7 @@ public class HibernateUtil {
   
 	private static Configuration configuration = getConfigure();
     private static final SessionFactory sessionFactory = buildSessionFactory();
-    private static final EntityManagerFactory entityMangerFactory = buildEntityManagerFactory();
+    //private static final EntityManagerFactory entityMangerFactory = buildEntityManagerFactory();
     private static SessionFactory buildSessionFactory() {
         try {
             // Create the SessionFactory from hibernate.cfg.xml
@@ -37,7 +37,7 @@ public class HibernateUtil {
         getSessionFactory().close();
     }
     
-    private static EntityManagerFactory buildEntityManagerFactory() {
+    /*private static EntityManagerFactory buildEntityManagerFactory() {
     	Map<String, String> properties = new HashMap<String, String>();
     	properties.put("javax.persistence.jdbc.user", configuration.getProperty("connection.username"));
     	properties.put("javax.persistence.jdbc.password", configuration.getProperty("connection.password"));
@@ -46,6 +46,6 @@ public class HibernateUtil {
     
     public static EntityManagerFactory getEntityMangerFactory() {
     	return entityMangerFactory;
-    }
+    }*/
   
 }
