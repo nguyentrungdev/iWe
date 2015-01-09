@@ -35,7 +35,6 @@ public class PersonController {
 	//For add and update person both
 	@RequestMapping(value= "/person/add", method = RequestMethod.POST)
 	public String addPerson(@ModelAttribute("person") Person p){
-		System.out.println(0);
 		if(p.getId() == null){
 			//new person, add it
 			System.out.println(1);
