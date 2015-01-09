@@ -5,15 +5,13 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
-import org.hibernate.annotations.Type;
 @Entity
-@Table
-public class User {
+public class Person {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private String userName;
 	private String passWord;
@@ -24,7 +22,7 @@ public class User {
 	private String email;
 	private String address;
 	@Column(columnDefinition = "BIT", length = 1)
-	private Boolean isActive;
+	private Boolean isActive = true;
 	private Date registrationDate;
 	private Date lastLogin;
 	
